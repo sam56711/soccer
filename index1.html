@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>축구선수 인물 맞추기 퀴즈</title>
+    <style>
+        /* CSS 스타일 추가 */
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+        }
+        .option {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .option:hover {
+            background-color: #f0f0f0;
+        }
+        .player-img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>축구선수 인물 맞추기 퀴즈</h1>
+        <div class="player-image">
+            <img src="그리.jpg" alt="선수 이미지" class="player-img">
+        </div>
+        <div class="question">이 선수의 국적은 무엇인가요?</div>
+        <div class="options">
+            <div class="option" onclick="checkAnswer('South Korea')">대한민국</div>
+            <div class="option" onclick="checkAnswer('Japan')">일본</div>
+            <div class="option" onclick="showNextPage('France')">프랑스</div>
+            <div class="option" onclick="checkAnswer('Brazil')">브라질</div>
+        </div>
+    </div>
+    <script>
+        function checkAnswer(team) {
+            alert("틀렸습니다!");
+        }
+
+        function showNextPage(team) {
+            alert("정답입니다! 다음 질문으로 이동합니다.");
+            // 여기에 다음 질문으로 넘어가는 로직을 추가하세요.
+            window.location.href = "next_page.html"; // 다음 질문 페이지로 이동
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>축구선수 인물 맞추기 퀴즈</title>
+    <style>
+        /* CSS 스타일 추가 */
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* 옵션들이 화면 크기에 맞춰 자동으로 줄 바꿈하도록 설정 */
+        }
+        .option {
+            margin: 10px; /* 옵션 간격 조정 */
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            min-width: 150px; /* 옵션 최소 너비 설정 */
+        }
+        .option:hover {
+            background-color: #f0f0f0;
+        }
+        .player-img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>축구선수 인물 맞추기 퀴즈</h1>
+        <div class="question">다음 중 현재 EPL에서 뛰고 있는 선수는?</div>
+        <div class="options">
+            <div class="option" onclick="toggleOption('Kevin De Bruyne')">케빈 데 브라위너</div>
+            <div class="option" onclick="toggleOption('Harry Kane')">해리 케인</div>
+            <div class="option" onclick="toggleOption('Mohamed Salah')">모하메드 살라</div>
+            <div class="option" onclick="toggleOption('Bruno Fernandes')">브루노 페르난데스</div>
+            <div class="option" onclick="toggleOption('Jack Grealish')">잭 그리니시</div>
+            <div class="option" onclick="toggleOption('Raheem Sterling')">레흐림 스털링</div>
+            <div class="option" onclick="toggleOption('Sadio Mane')">사디오 마네</div>
+            <div class="option" onclick="toggleOption('Trent Alexander-Arnold')">트렌트 알렉산더-아놀드</div>
+            <div class="option" onclick="toggleOption('Marcus Rashford')">마르쿠스 래시포드</div>
+            <div class="option" onclick="toggleOption('Pierre-Emerick Aubameyang')">피에르-에메릭 오바메양</div>
+            <div class="option" onclick="toggleOption('Declan Rice')">디클런 라이스</div>
+            <div class="option" onclick="checkAnswer()">제출</div>
+        </div>
+    </div>
+    <script>
+        let correctOptions = ['Kevin De Bruyne', 'Harry Kane', 'Mohamed Salah', 'Bruno Fernandes', 'Jack Grealish'];
+        let selectedOptions = [];
+
+        function toggleOption(playerName) {
+            let index = selectedOptions.indexOf(playerName);
+            if (index === -1) {
+                selectedOptions.push(playerName);
+            } else {
+                selectedOptions.splice(index, 1);
+            }
+        }
+
+        function checkAnswer() {
+            let correct = true;
+            correctOptions.forEach(option => {
+                if (!selectedOptions.includes(option)) {
+                    correct = false;
+                }
+            });
+
+            if (correct && selectedOptions.length === correctOptions.length) {
+                alert("정답입니다!");
+                // 다음 동작을 수행하세요.
+            } else {
+                alert("오답입니다!");
+            }
+        }
+    </script>
+</body>
+</html>
